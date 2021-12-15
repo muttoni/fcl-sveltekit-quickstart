@@ -2,6 +2,8 @@
 
 Everything you need to build a SvelteKit project with FCL.
 
+## ⚠️ NOTE: STILL WIP ⚠️
+
 ![image](https://user-images.githubusercontent.com/27052451/146258054-da764778-7d9d-43cc-bb0d-b3e0c37905b9.png)
 
 
