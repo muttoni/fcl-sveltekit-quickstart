@@ -1,0 +1,42 @@
+<script>
+  import { profile } from '../flow/stores';
+
+  /**
+   * Example profile object:
+   * {
+   *  address: '0x0d1f73bb7bdca8b9', 
+   *  name: 'Flow Developer', 
+   *  avatar: '', 
+   *  color: '#232323', 
+   *  info: ''
+   * }
+  */
+</script>
+
+
+<article class="card">
+
+  <label for="address">
+    Address
+    <input type="text" id="address" name="address" value="{$profile.address}" placeholder="Address" disabled>
+  </label>
+  <div class="grid">
+    
+    <!-- Markup example 1: input is inside label -->
+    <label for="name">
+      Name
+      <input type="text" id="name" name="name" placeholder="Name" bind:value={$profile.name}>
+    </label>
+    
+    <label for="color">
+      Favorite Color
+      <input type="color" id="color" name="color" bind:value={$profile.color}>
+    </label>
+    
+  </div>
+  
+  <!-- Markup example 2: input is after label -->
+  <label for="email">Email address</label>
+  <input type="email" id="email" name="email" placeholder="Email address" required>
+  <small>We'll never share your email with anyone else.</small>
+</article>
