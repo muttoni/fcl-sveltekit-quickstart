@@ -2,6 +2,9 @@
 
 Everything you need to build a SvelteKit project with FCL.
 
+![image](https://user-images.githubusercontent.com/27052451/146258054-da764778-7d9d-43cc-bb0d-b3e0c37905b9.png)
+
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
