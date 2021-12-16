@@ -2,9 +2,9 @@
 
 Everything you need to build a SvelteKit project with the Flow Client Library (FCL).
 
-## ⚠️ NOTE: STILL WIP ⚠️
+## [Live demo](https://fcl-sveltekit.vercel.app/)
 
-![image](https://user-images.githubusercontent.com/27052451/146340356-e34f3c47-43bc-4c11-926b-b82b99d561c6.png)
+[![image](https://user-images.githubusercontent.com/27052451/146340356-e34f3c47-43bc-4c11-926b-b82b99d561c6.png)](https://fcl-sveltekit.vercel.app/)
 
 
 ## Developing
