@@ -1,4 +1,4 @@
-# fcl-sveltekit
+# How to use the Flow Client Library (FCL) with SvelteKit
 
 Everything you need to build a SvelteKit project with FCL.
 
