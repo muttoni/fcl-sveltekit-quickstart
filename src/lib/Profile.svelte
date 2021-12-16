@@ -1,5 +1,8 @@
 <script>
   import { profile } from '../flow/stores';
+  import { 
+    executeTransaction 
+  } from '../flow/actions';
 
   /**
    * Example profile object:
@@ -38,4 +41,7 @@
   <!-- Markup example 2: input is after label -->
   <label for="info">Bio</label>
   <textarea type="info" id="info" name="info" placeholder="Your personal info" bind:value={$profile.info}></textarea>
+
+  <button on:click={executeTransaction}>Update Profile</button>
+
 </article>

@@ -1,5 +1,6 @@
 <script>
 import { transactionStatus, transactionInProgress } from "../flow/stores";
+import { slide } from 'svelte/transition';
 </script>
 
 <style>
@@ -12,9 +13,12 @@ import { transactionStatus, transactionInProgress } from "../flow/stores";
   }
 </style>
 {#if $transactionInProgress}
-<article class="card">
+<article class="card accent-border" transition:slide>
   Transaction status:
-  {#if $transactionStatus < 2}
+  {#if $transactionStatus < 0}
+  <span><kbd>Initializing</kbd><br/><small>Waiting for transaction approval.</small></span>
+  <progress indeterminate>Initializing...</progress>
+  {:else if $transactionStatus < 2}
   <span><kbd>Pending</kbd><br/><small>The transaction has been received by a collector but not yet finalized in a block.</small></span>
   <progress indeterminate>Executing</progress>
   {:else if $transactionStatus === 2}
@@ -26,8 +30,11 @@ import { transactionStatus, transactionInProgress } from "../flow/stores";
   {:else if $transactionStatus === 4}
   <span><kbd>✓ Sealed</kbd><br/><small>The verification nodes have verified the transaction, and the seal is included in the latest block.</small></span>
   <progress min="0" max="100" value="100">Sealed!</progress>
+  {:else if $transactionStatus === 5}
+  <span><kbd>Expired</kbd><br/><small>The transaction was submitted past its expiration block height.</small></span>
   {:else}
-  Expired!
+  <span data-theme="invalid">Error!</span>
   {/if}
+  <small><a href="https://docs.onflow.org/access-api/">More info</a></small>
 </article>
 {/if}

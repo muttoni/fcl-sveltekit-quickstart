@@ -19,7 +19,7 @@ export const signUp = () => fcl.signUp()
 // init account
 export const initAccount = async () => {
   let transactionId = false;
-  transactionInProgress.set(true);
+  initTransactionState()
 
   try {
     transactionId = await fcl.mutate({
@@ -44,8 +44,12 @@ export const initAccount = async () => {
       authorizations: [fcl.authz],
       limit: 50
     })
-    fcl.tx(transactionId).subscribe(res => transactionStatus.set(res.status))
-    fcl.tx(transactionId).onceSealed(() => setTimeout(transactionInProgress.set(false),1000))
+    fcl.tx(transactionId).subscribe(res => {
+      transactionStatus.set(res.status)
+      if(res.status === 4) {
+        setTimeout(() => transactionInProgress.set(false),2000)
+      }
+    })
 
   } catch (e) {
     transactionStatus.set(99)
@@ -77,7 +81,7 @@ export const sendQuery = async (addr) => {
 }
 
 export const executeTransaction = async () => {
-  transactionInProgress.set(true)
+  initTransactionState()
   try {
     const transactionId = await fcl.mutate({
       cadence: `
@@ -109,13 +113,19 @@ export const executeTransaction = async () => {
       authorizations: [fcl.authz],
       limit: 50
     })
-    fcl.tx(transactionId).subscribe(res => transactionStatus.set(res.status))
-    fcl.tx(transactionId).onceSealed(() => {
-      console.log('transaction sealed!')
-      setTimeout(transactionInProgress.set(false),1000)
+    fcl.tx(transactionId).subscribe(res => {
+      transactionStatus.set(res.status)
+      if(res.status === 4) {
+        setTimeout(() => transactionInProgress.set(false),2000)
+      }
     })
   } catch(e) {
     console.log(e);
     transactionStatus.set(99)
   }
+}
+
+function initTransactionState() {
+  transactionInProgress.set(true);
+  transactionStatus.set(-1);
 }

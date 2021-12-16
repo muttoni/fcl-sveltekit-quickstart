@@ -6,7 +6,6 @@
     logIn, 
     signUp, 
     initAccount, 
-    executeTransaction 
   } from '../flow/actions';
   
   import UserAddress from './UserAddress.svelte';
@@ -14,7 +13,7 @@
 </script>
 
 <div class="grid">
-  <div>
+  <div class="mb-2">
     {#if $user?.loggedIn && $profile}
     <Profile />
     {:else}
@@ -38,7 +37,6 @@
       <h2>Controls</h2>
       <button on:click={initAccount}>Create Profile</button>
       <button on:click={() => sendQuery($user.addr)}>Load Profile</button>
-      <button on:click={executeTransaction}>Update Profile</button>
     </div>
     {:else}
     <div>
