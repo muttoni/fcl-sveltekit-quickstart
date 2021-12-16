@@ -24,8 +24,7 @@
     <input type="text" id="address" name="address" value="{$profile.address}" placeholder="Address" disabled>
   </label>
   <div class="grid">
-    
-    <!-- Markup example 1: input is inside label -->
+
     <label for="name">
       Name
       <input type="text" id="name" name="name" placeholder="Name" bind:value={$profile.name}>
@@ -38,7 +37,6 @@
     
   </div>
   
-  <!-- Markup example 2: input is after label -->
   <label for="info">Bio</label>
   <textarea type="info" id="info" name="info" placeholder="Your personal info" bind:value={$profile.info}></textarea>
 
