@@ -3,6 +3,7 @@
 import resolve from '@rollup/plugin-node-resolve'
 import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
+import vercel from '@sveltejs/adapter-vercel';
 
 const config = {
   // options passed to svelte.compile (https://svelte.dev/docs#svelte_compile)
@@ -12,6 +13,7 @@ const config = {
   extensions: ['.svelte'],
   
   kit: {
+    adapter: vercel(), // change this to whatever build adapter you want to use (e.g. static)
     files: {
       assets: 'static',
       hooks: 'src/hooks',
