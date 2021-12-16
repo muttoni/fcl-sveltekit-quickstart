@@ -19,9 +19,9 @@
     <Profile />
     {:else}
     <h1>
-      Welcome to web3.
+      Welcome to web3!
     </h1>
-    <p>This is a starter app built on Flow, showing how to use the Flow Client Library (FCL) with SvelteKit.</p>
+    <p>This is a starter app built on Flow. It demonstrates how to use the Flow Client Library (FCL) with SvelteKit.</p>
     {#if !$user?.loggedIn}
     <p>Login to get started.</p>
     {:else}

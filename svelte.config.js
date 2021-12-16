@@ -30,7 +30,7 @@ const config = {
       enabled: false
     },
     router: true,
-    ssr: false,
+    ssr: true,
     vite: () => ({
       plugins: [
         builtins(),

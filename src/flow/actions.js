@@ -1,4 +1,5 @@
 import { browser } from '$app/env';
+import { get } from 'svelte/store';
 
 import * as fcl from "@samatech/onflow-fcl-esm";
 import "./config";
@@ -87,15 +88,21 @@ export const executeTransaction = async () => {
             account
               .borrow<&Profile.Base{Profile.Owner}>(from: Profile.privatePath)!
               .setName(name)
+
+            account
+              .borrow<&Profile.Base{Profile.Owner}>(from: Profile.privatePath)!
               .setInfo(info)
+
+            account
+              .borrow<&Profile.Base{Profile.Owner}>(from: Profile.privatePath)!
               .setColor(color)
           }
         }
       `,
       args: (arg, t) => [
-        arg("Flow 1", t.String),
-        arg("#000", t.String),
-        arg("Flow Developer", t.String),
+        arg(get(profile).name, t.String),
+        arg(get(profile).color, t.String),
+        arg(get(profile).info, t.String),
       ],
       payer: fcl.authz,
       proposer: fcl.authz,
@@ -103,7 +110,10 @@ export const executeTransaction = async () => {
       limit: 50
     })
     fcl.tx(transactionId).subscribe(res => transactionStatus.set(res.status))
-    fcl.tx(transactionId).onceSealed(() => setTimeout(transactionInProgress.set(false),1000))
+    fcl.tx(transactionId).onceSealed(() => {
+      console.log('transaction sealed!')
+      setTimeout(transactionInProgress.set(false),1000)
+    })
   } catch(e) {
     console.log(e);
     transactionStatus.set(99)

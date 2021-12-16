@@ -36,7 +36,6 @@
   </div>
   
   <!-- Markup example 2: input is after label -->
-  <label for="email">Email address</label>
-  <input type="email" id="email" name="email" placeholder="Email address" required>
-  <small>We'll never share your email with anyone else.</small>
+  <label for="info">Bio</label>
+  <textarea type="info" id="info" name="info" placeholder="Your personal info" bind:value={$profile.info}></textarea>
 </article>
