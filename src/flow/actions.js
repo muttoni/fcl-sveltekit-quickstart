@@ -3,7 +3,7 @@ import { get } from 'svelte/store';
 
 import * as fcl from "@onflow/fcl";
 import "./config";
-import { user, profile, transactionStatus, transactionInProgress } from './stores';
+import { user, profile, transactionStatus, transactionInProgress, txId } from './stores';
 
 if(browser) {
   // set Svelte $user store to currentUser, 
@@ -44,6 +44,9 @@ export const initAccount = async () => {
       authorizations: [fcl.authz],
       limit: 50
     })
+
+    txId.set(transactionId);
+
     fcl.tx(transactionId).subscribe(res => {
       transactionStatus.set(res.status)
       if(res.status === 4) {
@@ -113,6 +116,10 @@ export const executeTransaction = async () => {
       authorizations: [fcl.authz],
       limit: 50
     })
+
+    
+    txId.set(transactionId);
+
     fcl.tx(transactionId).subscribe(res => {
       transactionStatus.set(res.status)
       if(res.status === 4) {
@@ -126,6 +133,7 @@ export const executeTransaction = async () => {
 }
 
 function initTransactionState() {
+  txId.set(false);
   transactionInProgress.set(true);
   transactionStatus.set(-1);
 }
