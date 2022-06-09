@@ -8,6 +8,9 @@ For a NextJS example, see my other repo: https://github.com/muttoni/fcl-nextjs-q
 
 [![image](https://user-images.githubusercontent.com/27052451/146340356-e34f3c47-43bc-4c11-926b-b82b99d561c6.png)](https://fcl-sveltekit.vercel.app/)
 
+## IMPORTANT
+
+This is using the latest version of SvelteKit. Make sure you are running **Node v16 or above**!
 
 ## Developing
 
