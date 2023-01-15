@@ -22,7 +22,7 @@
       <span>
         <kbd>Pending</kbd>
         <span class="txId">
-          <a href={`https://testnet.flowscan.org/transaction/${$txId}`} target="_blank">
+          <a href={`https://testnet.flowscan.org/transaction/${$txId}`} rel="noreferrer" target="_blank">
             {$txId?.slice(0, 8)}...
           </a>
         </span><br/>
@@ -36,7 +36,7 @@
       <span>
         <kbd>Finalized</kbd>
         <span class="txId">
-          <a href={`https://testnet.flowscan.org/transaction/${$txId}`} target="_blank">
+          <a href={`https://testnet.flowscan.org/transaction/${$txId}`} rel="noreferrer" target="_blank">
             {$txId?.slice(0, 8)}...
           </a>
         </span><br/>
@@ -47,7 +47,7 @@
     <span>
       <kbd>Executed</kbd>
       <span class="txId">
-        <a href={`https://testnet.flowscan.org/transaction/${$txId}`} target="_blank">
+        <a href={`https://testnet.flowscan.org/transaction/${$txId}`} rel="noreferrer" target="_blank">
           {$txId?.slice(0, 8)}...
         </a>
       </span><br/>
@@ -60,7 +60,7 @@
     <span>
       <kbd>✓ Sealed</kbd>
       <span class="txId">
-        <a href={`https://testnet.flowscan.org/transaction/${$txId}`} target="_blank">
+        <a href={`https://testnet.flowscan.org/transaction/${$txId}`} rel="noreferrer" target="_blank">
           {$txId?.slice(0, 8)}...
         </a>
       </span><br/>
@@ -71,7 +71,7 @@
     <span>
       <kbd>Expired</kbd>
       <span class="txId">
-        <a href={`https://testnet.flowscan.org/transaction/${$txId}`} target="_blank">
+        <a href={`https://testnet.flowscan.org/transaction/${$txId}`} rel="noreferrer" target="_blank">
           {$txId?.slice(0, 8)}...
         </a>
       </span><br/>
