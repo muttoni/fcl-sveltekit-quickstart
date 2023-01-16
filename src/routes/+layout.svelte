@@ -11,7 +11,7 @@
 
 <footer>
   <p>
-    visit <a href="https://docs.onflow.org">docs.onflow.org</a> to learn more.
+    visit <a href="https://developers.flow.com">developers.flow.com</a> to learn more.
   </p>
   <p>
     <a href="https://github.com/muttoni/fcl-sveltekit">
